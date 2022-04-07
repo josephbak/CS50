@@ -1,0 +1,1 @@
+SELECT PEOPLE.birth FROM PEOPLE WHERE name = "Emma Stone";
