@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>The errors that can be pointed out by the compiler are?</h3>
+                <p id="question1">
+                <div id="buttons">
+                    <button id="1">Syntax error</button>
+                    <button id="2" class="wrongButton">Semantic error</button>
+                    <button id="3" class="wrongButton">Logical error</button>
+                    <button id="4" class="wrongButton">Internal error</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>What is Earth's largest continent?</h3>
+                <p id="question2"></p>
+                <div>
+                    <input id="answer">
+                    <button type="submit" id="smbutton">Submit</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // For the first question.
+            window.onload = myMain;
+            function myMain() {
+                document.getElementById("buttons").onclick = buton;
+            }
+            function buton(e) {
+                if (e.target.tagName == 'BUTTON') {
+                    // console.log(e.target)
+                    if (e.target.id == "1") {
+                        document.getElementById("question1").innerHTML = "Correct";
+                        document.getElementById("1").style.backgroundColor = "green";
+                    } else {
+                        document.getElementById("question1").innerHTML = "Incorrect";
+                        document.getElementById(e.target.id).style.backgroundColor = "red";
+                    }
+                    for (let i=1;i < 5 ;i++){
+                        if (String(i) != e.target.id){
+                            document.getElementById(String(i)).style.backgroundColor = "#d9edff";
+                        }
+                    }
+                }
+            }
+
+            // For the second question.
+            const submit_button = document.getElementById("smbutton");
+            submit_button.addEventListener("click", myFunction);
+            function myFunction() {
+            if (document.getElementById("answer").value.toUpperCase() == "ASIA") {
+                document.getElementById("question2").innerHTML = "Correct";
+                document.getElementById("answer").style.backgroundColor = "green";
+            }
+            else {
+                document.getElementById("question2").innerHTML = "Incorrect";
+                document.getElementById("answer").style.backgroundColor = "red";
+            }
+            }
+        </script>
+    </body>
+</html>
